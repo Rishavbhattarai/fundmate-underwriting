@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Callout_Timeout_Range</fullName>
+<active>true</active>
+<description>Callout Timeout must be 1,000 to 120,000 ms (the Apex limit).</description>
+<errorConditionFormula>OR(Callout_Timeout_Ms__c &lt; 1000, Callout_Timeout_Ms__c &gt; 120000)</errorConditionFormula>
+<errorDisplayField>Callout_Timeout_Ms__c</errorDisplayField>
+<errorMessage>Callout Timeout must be 1,000 to 120,000 ms (the Apex limit).</errorMessage>
+</ValidationRule>

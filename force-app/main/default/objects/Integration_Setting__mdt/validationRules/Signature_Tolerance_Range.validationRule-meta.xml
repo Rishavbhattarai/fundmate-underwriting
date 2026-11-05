@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Signature_Tolerance_Range</fullName>
+<active>true</active>
+<description>Signature Tolerance must be 30 to 3,600 seconds.</description>
+<errorConditionFormula>OR(Signature_Tolerance_Seconds__c &lt; 30, Signature_Tolerance_Seconds__c &gt; 3600)</errorConditionFormula>
+<errorDisplayField>Signature_Tolerance_Seconds__c</errorDisplayField>
+<errorMessage>Signature Tolerance must be 30 to 3,600 seconds.</errorMessage>
+</ValidationRule>

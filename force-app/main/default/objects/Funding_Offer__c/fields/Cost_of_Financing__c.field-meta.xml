@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Cost_of_Financing__c</fullName><label>Cost of Financing</label><type>Currency</type><precision>16</precision><scale>2</scale><required>false</required><formula>(Funding_Amount__c * Factor_Rate__c) - Funding_Amount__c</formula><formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs></CustomField>

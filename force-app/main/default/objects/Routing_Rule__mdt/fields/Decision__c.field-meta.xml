@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Decision__c</fullName><description>Application status this rule routes: Approved, Declined, Needs More Info, Rejected or Send Failed.</description><externalId>false</externalId><fieldManageability>SubscriberControlled</fieldManageability><label>Status</label><type>Text</type><length>40</length><required>false</required><unique>false</unique></CustomField>

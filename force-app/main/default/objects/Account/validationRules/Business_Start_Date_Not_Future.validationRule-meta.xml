@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Business_Start_Date_Not_Future</fullName>
+<active>true</active>
+<description>Business Start Date can't be in the future.</description>
+<errorConditionFormula>Business_Start_Date__c &gt; TODAY()</errorConditionFormula>
+<errorDisplayField>Business_Start_Date__c</errorDisplayField>
+<errorMessage>Business Start Date can't be in the future.</errorMessage>
+</ValidationRule>

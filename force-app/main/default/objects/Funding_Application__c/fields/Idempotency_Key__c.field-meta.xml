@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Idempotency_Key__c</fullName>
+    <description>Idempotency-Key of the batch this application was last sent in. Reused on every retry of that batch; cleared when a user resends.</description>
+    <externalId>false</externalId>
+    <label>Idempotency Key</label>
+    <length>36</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Number_of_Payments__c</fullName><description>Daily assumes 21 business days a month.</description><label>Number of Payments</label><type>Number</type><precision>6</precision><scale>0</scale><required>false</required><formula>CASE(TEXT(Payment_Frequency__c), 'Daily', ROUND(Term_Months__c * 21, 0), 'Weekly', ROUND(Term_Months__c * 52 / 12, 0), 'Monthly', Term_Months__c, NULL)</formula><formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs></CustomField>

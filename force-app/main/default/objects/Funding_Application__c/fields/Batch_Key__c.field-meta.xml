@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Batch_Key__c</fullName><description>Stamped when the record is claimed for sending. Also sent as the Idempotency-Key.</description><label>Batch Key</label><type>Text</type><length>36</length><required>false</required><externalId>true</externalId></CustomField>

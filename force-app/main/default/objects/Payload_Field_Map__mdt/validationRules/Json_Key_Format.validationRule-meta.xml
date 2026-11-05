@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Json_Key_Format</fullName>
+<active>true</active>
+<description>JSON Key is required and must be letters and digits, starting with a letter.</description>
+<errorConditionFormula>OR(ISBLANK(Json_Key__c), NOT(REGEX(Json_Key__c, "[a-zA-Z][a-zA-Z0-9]*")))</errorConditionFormula>
+<errorDisplayField>Json_Key__c</errorDisplayField>
+<errorMessage>JSON Key is required and must be letters and digits, starting with a letter.</errorMessage>
+</ValidationRule>

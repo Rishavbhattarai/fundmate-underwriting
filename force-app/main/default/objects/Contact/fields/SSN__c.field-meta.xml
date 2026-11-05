@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>SSN__c</fullName><description>Social Security Number, format 123-45-6789. Classic encrypted.</description><label>SSN</label><type>EncryptedText</type><length>11</length><maskChar>asterisk</maskChar><maskType>ssn</maskType></CustomField>

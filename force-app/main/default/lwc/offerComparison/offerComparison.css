@@ -1,0 +1,13 @@
+.metric-col {
+    width: 11rem;
+}
+
+td.best {
+    background-color: #ebf7e6;
+    font-weight: 600;
+}
+
+.best-badge {
+    background-color: #2e844a;
+    color: #ffffff;
+}

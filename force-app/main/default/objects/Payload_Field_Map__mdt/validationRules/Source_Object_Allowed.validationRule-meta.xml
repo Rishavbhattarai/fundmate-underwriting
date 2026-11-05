@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Source_Object_Allowed</fullName>
+<active>true</active>
+<description>Source Object must be Account, Contact or Funding_Application__c.</description>
+<errorConditionFormula>NOT(OR(Source_Object__c = "Account", Source_Object__c = "Contact", Source_Object__c = "Funding_Application__c"))</errorConditionFormula>
+<errorDisplayField>Source_Object__c</errorDisplayField>
+<errorMessage>Source Object must be Account, Contact or Funding_Application__c.</errorMessage>
+</ValidationRule>

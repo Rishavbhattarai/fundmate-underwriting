@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Offer Comparison" icon-name="standard:contract">
+        <div slot="actions">
+            <template lwc:if={hasSuperseded}>
+                <lightning-button variant="base" label={toggleLabel} onclick={toggleSuperseded} class="slds-m-right_small"></lightning-button>
+            </template>
+            <lightning-button-icon icon-name="utility:refresh" alternative-text="Refresh offers" onclick={refresh}></lightning-button-icon>
+        </div>
+
+        <div class="slds-p-horizontal_medium">
+            <template lwc:if={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+            <template lwc:elseif={hasOffers}>
+                <div class="slds-scrollable_x">
+                    <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_fixed-layout" aria-label="Offer comparison">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col" class="metric-col"><span class="slds-assistive-text">Metric</span></th>
+                                <template for:each={columns} for:item="col">
+                                    <th key={col.id} scope="col" class="slds-text-align_right">
+                                        <div class={col.headerClass}>
+                                            <div class="slds-truncate slds-text-title_bold" title={col.title}>{col.title}</div>
+                                            <div class="slds-truncate slds-text-body_small slds-text-color_weak">{col.subtitle}</div>
+                                        </div>
+                                    </th>
+                                </template>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={rows} for:item="row">
+                                <tr key={row.key}>
+                                    <th scope="row" class="metric-col"><div class="slds-truncate">{row.label}</div></th>
+                                    <template for:each={row.cells} for:item="cell">
+                                        <td key={cell.id} class={cell.cellClass}>
+                                            {cell.text}
+                                            <template lwc:if={cell.isBest}>
+                                                <lightning-badge label="Best" class="slds-m-left_x-small best-badge"></lightning-badge>
+                                            </template>
+                                        </td>
+                                    </template>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="slds-text-body_small slds-text-color_weak slds-m-top_small">
+                    Estimated APR is calculated from the payment schedule for comparison. It is not a legal disclosure.
+                </p>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-color_weak">No offers yet. Offers appear when an Approved decision arrives.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

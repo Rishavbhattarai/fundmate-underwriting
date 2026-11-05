@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Batch_Path__c</fullName><description>Path appended to the Named Credential, e.g. /v1/applications/batch.</description><externalId>false</externalId><fieldManageability>SubscriberControlled</fieldManageability><label>Batch Path</label><type>Text</type><length>120</length><required>false</required><unique>false</unique></CustomField>

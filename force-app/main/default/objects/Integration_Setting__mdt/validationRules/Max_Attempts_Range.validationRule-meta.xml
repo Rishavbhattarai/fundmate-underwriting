@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Max_Attempts_Range</fullName>
+<active>true</active>
+<description>Max Attempts must be 1 to 10.</description>
+<errorConditionFormula>OR(ISBLANK(Max_Attempts__c), Max_Attempts__c &lt; 1, Max_Attempts__c &gt; 10)</errorConditionFormula>
+<errorDisplayField>Max_Attempts__c</errorDisplayField>
+<errorMessage>Max Attempts must be 1 to 10.</errorMessage>
+</ValidationRule>

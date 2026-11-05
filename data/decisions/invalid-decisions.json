@@ -1,0 +1,8 @@
+{
+  "decisions": [
+    { "decisionId": "DEC-BAD-1", "trackingId": "UW-0", "applicationReference": "FA-999999", "decision": "Approved", "offers": [] },
+    { "decisionId": "DEC-BAD-2", "trackingId": "UW-0", "applicationReference": "FA-000123", "decision": "Maybe" },
+    { "decisionId": "DEC-BAD-3", "trackingId": "UW-0", "applicationReference": "FA-000123", "decision": "Approved",
+      "offers": [{ "offerId": "OFR-BAD", "fundingAmount": -5, "factorRate": 9, "termMonths": 0.5, "paymentFrequency": "Hourly" }] }
+  ]
+}

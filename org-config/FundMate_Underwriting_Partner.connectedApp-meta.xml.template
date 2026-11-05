@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template used by scripts/create-partner-app.sh. Placeholders are filled from .env.local at deploy time; the real secret is never committed. -->
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>__EMAIL__</contactEmail>
+    <description>Lets the Underwriting API post decisions as the FundMate integration user (OAuth client credentials).</description>
+    <label>FundMate Underwriting Partner</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com/services/oauth2/success</callbackUrl>
+        <consumerKey>__CLIENT_ID__</consumerKey>
+        <consumerSecret>__CLIENT_SECRET__</consumerSecret>
+        <isAdminApproved>true</isAdminApproved>
+        <isClientCredentialEnabled>true</isClientCredentialEnabled>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <oauthClientCredentialUser>__USERNAME__</oauthClientCredentialUser>
+        <scopes>Api</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>zero</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

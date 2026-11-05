@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Required to post to /underwriting/decisions. Granted only through the FundMate_Integration permission set, so tokens for any other user are refused with 403.</description>
+    <isLicensed>false</isLicensed>
+    <label>Post Underwriting Decisions</label>
+</CustomPermission>

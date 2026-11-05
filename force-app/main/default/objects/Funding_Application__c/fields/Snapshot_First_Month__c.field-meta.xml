@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Snapshot_First_Month__c</fullName>
+    <description>Snapshot of the business's latest bank statements, taken by FinancialSnapshotService when the application is created and when it is submitted. Underwriting sees exactly these values.</description>
+    <externalId>false</externalId>
+    <label>Earliest Statement Month</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

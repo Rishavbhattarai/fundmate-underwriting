@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Max_Backoff_Seconds__c</fullName><description>Upper bound for any single retry delay.</description><externalId>false</externalId><fieldManageability>SubscriberControlled</fieldManageability><label>Max Backoff (Seconds)</label><type>Number</type><precision>6</precision><scale>0</scale><required>false</required></CustomField>

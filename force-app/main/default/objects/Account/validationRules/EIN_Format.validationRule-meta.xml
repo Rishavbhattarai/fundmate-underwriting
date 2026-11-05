@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>EIN_Format</fullName>
+<active>true</active>
+<description>EIN must be in 12-3456789 format.</description>
+<errorConditionFormula>AND(NOT(ISBLANK(EIN__c)), NOT(REGEX(EIN__c, "\\d{2}-\\d{7}")))</errorConditionFormula>
+<errorDisplayField>EIN__c</errorDisplayField>
+<errorMessage>EIN must be in 12-3456789 format.</errorMessage>
+</ValidationRule>

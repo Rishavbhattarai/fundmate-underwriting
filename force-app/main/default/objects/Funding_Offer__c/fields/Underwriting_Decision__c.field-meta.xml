@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Underwriting_Decision__c</fullName><label>Underwriting Decision</label><type>Lookup</type><referenceTo>Underwriting_Decision__c</referenceTo><relationshipLabel>Funding Offers</relationshipLabel><relationshipName>Funding_Offers</relationshipName><required>false</required><deleteConstraint>SetNull</deleteConstraint></CustomField>

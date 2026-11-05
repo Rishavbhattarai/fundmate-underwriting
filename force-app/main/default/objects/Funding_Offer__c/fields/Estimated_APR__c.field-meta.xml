@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Estimated_APR__c</fullName><description>Calculated in Apex from the payment schedule. An estimate for comparison, not a legal disclosure.</description><label>Estimated APR</label><type>Percent</type><precision>7</precision><scale>2</scale><required>false</required></CustomField>

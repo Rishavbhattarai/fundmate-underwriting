@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Backoff_Range</fullName>
+<active>true</active>
+<description>Backoff Base must be at least 1, and Max Backoff can't be lower than it.</description>
+<errorConditionFormula>OR(ISBLANK(Backoff_Base_Seconds__c), Backoff_Base_Seconds__c &lt; 1, Max_Backoff_Seconds__c &lt; Backoff_Base_Seconds__c)</errorConditionFormula>
+<errorDisplayField>Backoff_Base_Seconds__c</errorDisplayField>
+<errorMessage>Backoff Base must be at least 1, and Max Backoff can't be lower than it.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<deploymentStatus>Deployed</deploymentStatus>
+<description>One month of bank activity for a business (Account).</description>
+<enableActivities>false</enableActivities>
+<enableBulkApi>true</enableBulkApi>
+<enableHistory>true</enableHistory>
+<enableReports>true</enableReports>
+<enableSearch>true</enableSearch>
+<enableSharing>true</enableSharing>
+<enableStreamingApi>true</enableStreamingApi>
+<label>Bank Statement</label>
+<pluralLabel>Bank Statements</pluralLabel>
+<nameField><displayFormat>BS-{000000}</displayFormat><label>Statement Number</label><type>AutoNumber</type><trackHistory>false</trackHistory></nameField>
+<sharingModel>ControlledByParent</sharingModel><externalSharingModel>ControlledByParent</externalSharingModel>
+</CustomObject>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Time_in_Business_Months__c</fullName><description>Whole months since the business start date.</description><label>Time in Business (Months)</label><type>Number</type><precision>6</precision><scale>0</scale><required>false</required><formula>IF(ISBLANK(Business_Start_Date__c), NULL, (YEAR(TODAY()) - YEAR(Business_Start_Date__c)) * 12 + MONTH(TODAY()) - MONTH(Business_Start_Date__c))</formula><formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs></CustomField>

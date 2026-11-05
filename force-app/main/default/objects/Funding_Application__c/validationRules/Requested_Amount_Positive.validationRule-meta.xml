@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Requested_Amount_Positive</fullName>
+<active>true</active>
+<description>Requested Amount must be greater than zero.</description>
+<errorConditionFormula>AND(NOT(ISBLANK(Requested_Amount__c)), Requested_Amount__c &lt;= 0)</errorConditionFormula>
+<errorDisplayField>Requested_Amount__c</errorDisplayField>
+<errorMessage>Requested Amount must be greater than zero.</errorMessage>
+</ValidationRule>

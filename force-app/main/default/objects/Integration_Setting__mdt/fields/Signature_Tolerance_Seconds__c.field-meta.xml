@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Signature_Tolerance_Seconds__c</fullName><description>Inbound requests with an older X-Timestamp are rejected as replays.</description><externalId>false</externalId><fieldManageability>SubscriberControlled</fieldManageability><label>Signature Tolerance (Seconds)</label><type>Number</type><precision>5</precision><scale>0</scale><required>false</required></CustomField>

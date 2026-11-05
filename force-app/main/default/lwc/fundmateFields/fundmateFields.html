@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="standard:record">
+        <div class="slds-p-horizontal_medium">
+            <template lwc:if={hasFields}>
+                <lightning-record-form
+                    record-id={recordId}
+                    object-api-name={objectApiName}
+                    fields={fieldList}
+                    columns="2"
+                    mode="view"
+                    onsuccess={handleSuccess}
+                ></lightning-record-form>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-color_weak">Add field API names in the component's Field Names setting.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

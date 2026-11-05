@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<actionOverrides><actionName>View</actionName><content>Funding_Application_Record_Page</content><formFactor>Large</formFactor><skipRecordTypeSelect>false</skipRecordTypeSelect><type>Flexipage</type></actionOverrides>
+
+<deploymentStatus>Deployed</deploymentStatus>
+<description>A small-business funding request sent to the Underwriting API.</description>
+<enableActivities>false</enableActivities>
+<enableBulkApi>true</enableBulkApi>
+<enableHistory>true</enableHistory>
+<enableReports>true</enableReports>
+<enableSearch>true</enableSearch>
+<enableSharing>true</enableSharing>
+<enableStreamingApi>true</enableStreamingApi>
+<label>Funding Application</label>
+<pluralLabel>Funding Applications</pluralLabel>
+<nameField><displayFormat>FA-{000000}</displayFormat><label>Application Reference</label><type>AutoNumber</type><trackHistory>false</trackHistory></nameField>
+<sharingModel>Private</sharingModel><externalSharingModel>Private</externalSharingModel>
+</CustomObject>

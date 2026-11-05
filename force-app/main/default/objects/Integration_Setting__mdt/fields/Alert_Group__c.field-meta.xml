@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Alert_Group__c</fullName><description>Public group developer name that receives send-failure alerts, along with the record owner.</description><externalId>false</externalId><fieldManageability>SubscriberControlled</fieldManageability><label>Alert Group</label><type>Text</type><length>80</length><required>false</required><unique>false</unique></CustomField>

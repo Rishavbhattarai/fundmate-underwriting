@@ -1,0 +1,20 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "FundMate Underwriting",
+      "versionName": "Version 1.0",
+      "versionNumber": "1.0.0.NEXT",
+      "versionDescription": "Submit, underwrite and route small-business funding applications."
+    }
+  ],
+  "name": "fundmate-underwriting",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "66.0",
+  "packageAliases": {
+    "FundMate Underwriting": "0Hobm0000008u6fCAA",
+    "FundMate Underwriting@1.0.0-1": "04tbm000000vSafAAE"
+  }
+}

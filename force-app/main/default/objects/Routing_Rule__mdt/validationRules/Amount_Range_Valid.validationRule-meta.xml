@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Amount_Range_Valid</fullName>
+<active>true</active>
+<description>Min Amount can't be greater than Max Amount.</description>
+<errorConditionFormula>AND(NOT(ISBLANK(Min_Amount__c)), NOT(ISBLANK(Max_Amount__c)), Min_Amount__c &gt; Max_Amount__c)</errorConditionFormula>
+<errorDisplayField>Min_Amount__c</errorDisplayField>
+<errorMessage>Min Amount can't be greater than Max Amount.</errorMessage>
+</ValidationRule>

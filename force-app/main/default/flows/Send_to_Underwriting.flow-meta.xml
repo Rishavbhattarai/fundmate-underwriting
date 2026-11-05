@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Application</name>
+        <label>Send Application</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>SendToUnderwritingAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Was_Sent</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Show_Error</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>applicationId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <decisions>
+        <name>Was_Sent</name>
+        <label>Was Sent?</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Show_Not_Sent</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not sent</defaultConnectorLabel>
+        <rules>
+            <name>Queued</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Send_Application.status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Result</targetReference>
+            </connector>
+            <label>Queued</label>
+        </rules>
+    </decisions>
+    <description>Button on the Funding Application record page. Moves the application to Ready (which validates it) and starts a send run.</description>
+    <environments>Default</environments>
+    <interviewLabel>Send to Underwriting {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send to Underwriting</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>Show_Result</name>
+        <label>Result</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Result_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(46, 132, 74);&quot;&gt;Validated and queued for underwriting.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;It will be sent within a few minutes. Status updates appear on the record.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Show_Not_Sent</name>
+        <label>Not Sent</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Not_Sent_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;Not sent. Status: {!Send_Application.status}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Fix the following, then try again:&lt;/p&gt;&lt;p&gt;{!Send_Application.message}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Show_Error</name>
+        <label>Error</label>
+        <locationX>440</locationX>
+        <locationY>242</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Error_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;The application could not be sent.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Application</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

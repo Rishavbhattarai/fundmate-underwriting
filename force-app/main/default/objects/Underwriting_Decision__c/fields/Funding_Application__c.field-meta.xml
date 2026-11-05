@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Funding_Application__c</fullName><label>Funding Application</label><type>MasterDetail</type><referenceTo>Funding_Application__c</referenceTo><relationshipLabel>Underwriting Decisions</relationshipLabel><relationshipName>Underwriting_Decisions</relationshipName><relationshipOrder>0</relationshipOrder><reparentableMasterDetail>false</reparentableMasterDetail><writeRequiresMasterRead>false</writeRequiresMasterRead></CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Queue_And_Priority_Required</fullName>
+<active>true</active>
+<description>Queue Developer Name and Priority are required.</description>
+<errorConditionFormula>OR(ISBLANK(Queue_Developer_Name__c), ISBLANK(Priority__c))</errorConditionFormula>
+<errorDisplayField>Queue_Developer_Name__c</errorDisplayField>
+<errorMessage>Queue Developer Name and Priority are required.</errorMessage>
+</ValidationRule>

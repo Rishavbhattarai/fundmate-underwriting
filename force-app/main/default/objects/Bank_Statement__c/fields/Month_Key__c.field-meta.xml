@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Month_Key__c</fullName>
+    <description>Business (Account) Id + statement month, set by the Bank Statement Defaults flow. Unique, so a business can't have two statements for the same month.</description>
+    <externalId>false</externalId>
+    <label>Month Key</label>
+    <length>30</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>true</unique>
+    <caseSensitive>false</caseSensitive>
+</CustomField>

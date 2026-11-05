@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scratch-org-tests:
+    name: Deploy to a scratch org and run Apex tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Salesforce CLI
+        run: npm install --global @salesforce/cli
+
+      - name: Authenticate Dev Hub
+        env:
+          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
+        run: |
+          if [ -z "$SFDX_AUTH_URL" ]; then echo "::error::Add the SFDX_AUTH_URL repository secret (see README)."; exit 1; fi
+          echo "$SFDX_AUTH_URL" > ./devhub-auth.txt
+          sf org login sfdx-url --sfdx-url-file ./devhub-auth.txt --alias devhub --set-default-dev-hub
+          rm ./devhub-auth.txt
+
+      - name: Create scratch org
+        run: sf org create scratch --definition-file config/project-scratch-def.json --alias ci --duration-days 1 --set-default --wait 15
+
+      - name: Deploy source
+        run: sf project deploy start --target-org ci --wait 30
+
+      - name: Assign permission set
+        run: sf org assign permset --name FundMate_Admin --target-org ci
+
+      - name: Run Apex tests
+        run: |
+          sf apex run test --target-org ci --test-level RunLocalTests --code-coverage \
+            --result-format json --output-dir ./test-results --wait 40 > ./test-results.json || true
+          node scripts/ci/check-results.mjs ./test-results.json 85
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apex-test-results
+          path: |
+            test-results.json
+            test-results/
+
+      - name: Delete scratch org
+        if: always()
+        run: sf org delete scratch --target-org ci --no-prompt || true
+
+  mock-api:
+    name: Check the mock Underwriting API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check
+        run: node --check mock-api/src/index.js && node --check scripts/send-decisions.mjs

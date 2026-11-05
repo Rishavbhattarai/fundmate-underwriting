@@ -1,0 +1,20 @@
+{
+  "decisions": [
+    {
+      "decisionId": "DEC-55102",
+      "trackingId": "UW-88412",
+      "applicationReference": "FA-000123",
+      "decision": "Approved",
+      "decisionReason": "Meets guidelines.",
+      "offers": [
+        {
+          "offerId": "OFR-9001",
+          "fundingAmount": 75000.0,
+          "factorRate": 1.32,
+          "termMonths": 12,
+          "paymentFrequency": "Weekly"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Ownership_Percentage_Range</fullName>
+<active>true</active>
+<description>Ownership Percentage must be between 0 and 100.</description>
+<errorConditionFormula>OR(Ownership_Percentage__c &lt; 0, Ownership_Percentage__c &gt; 1)</errorConditionFormula>
+<errorDisplayField>Ownership_Percentage__c</errorDisplayField>
+<errorMessage>Ownership Percentage must be between 0 and 100.</errorMessage>
+</ValidationRule>

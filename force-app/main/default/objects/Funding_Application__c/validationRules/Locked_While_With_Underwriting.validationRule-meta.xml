@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Locked_While_With_Underwriting</fullName>
+<active>true</active>
+<description>Keeps the data underwriting is reviewing identical to what was sent.</description>
+<errorConditionFormula>AND(NOT(ISNEW()), OR(ISCHANGED(Account__c), ISCHANGED(Requested_Amount__c), ISCHANGED(Use_of_Funds__c)), NOT(OR(ISPICKVAL(PRIORVALUE(Status__c), "Draft"), ISPICKVAL(PRIORVALUE(Status__c), "Validation Failed"), ISPICKVAL(PRIORVALUE(Status__c), "Send Failed"), ISPICKVAL(PRIORVALUE(Status__c), "Needs More Info"))))</errorConditionFormula>
+
+<errorMessage>This application is with underwriting. Business, Requested Amount and Use of Funds can't change until it's decided or fails to send.</errorMessage>
+</ValidationRule>

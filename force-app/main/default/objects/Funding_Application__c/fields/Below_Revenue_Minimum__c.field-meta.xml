@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Below_Revenue_Minimum__c</fullName><description>Average deposits below the Revenue Minimum in Integration Settings. Flagged for the specialist; underwriting still decides.</description><label>Below Revenue Minimum</label><type>Checkbox</type><formula>AND(Snapshot_Statement_Count__c &gt; 0, Average_Monthly_Deposits__c &lt; $CustomMetadata.Integration_Setting__mdt.Default.Revenue_Minimum__c)</formula></CustomField>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Format_Message__c</fullName><description>Shown in Status Reason when the pattern fails.</description><externalId>false</externalId><fieldManageability>SubscriberControlled</fieldManageability><label>Format Message</label><type>Text</type><length>255</length><required>false</required><unique>false</unique></CustomField>

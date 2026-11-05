@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Signature_Header__c</fullName><description>Header that carries the HMAC signature.</description><externalId>false</externalId><fieldManageability>SubscriberControlled</fieldManageability><label>Signature Header</label><type>Text</type><length>60</length><required>false</required><unique>false</unique></CustomField>

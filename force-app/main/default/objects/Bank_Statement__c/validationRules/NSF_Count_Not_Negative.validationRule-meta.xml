@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NSF_Count_Not_Negative</fullName>
+<active>true</active>
+<description>NSF Count can't be negative.</description>
+<errorConditionFormula>NSF_Count__c &lt; 0</errorConditionFormula>
+<errorDisplayField>NSF_Count__c</errorDisplayField>
+<errorMessage>NSF Count can't be negative.</errorMessage>
+</ValidationRule>

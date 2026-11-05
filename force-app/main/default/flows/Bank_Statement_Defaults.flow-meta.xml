@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <assignments>
+        <description>Normalises the month to its first day and sets the unique month key.</description>
+        <name>Set_Month_And_Key</name>
+        <label>Set Month and Key</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Statement_Month__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxFirstOfMonth</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Month_Key__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxMonthKey</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Before-save: one statement per business per month. Admins can see and change this without code.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fxFirstOfMonth</name>
+        <dataType>Date</dataType>
+        <expression>DATE(YEAR({!$Record.Statement_Month__c}), MONTH({!$Record.Statement_Month__c}), 1)</expression>
+    </formulas>
+    <formulas>
+        <name>fxMonthKey</name>
+        <dataType>String</dataType>
+        <expression>CASESAFEID({!$Record.Account__c}) &amp; &apos;-&apos; &amp; TEXT(YEAR({!$Record.Statement_Month__c})) &amp; &apos;-&apos; &amp; LPAD(TEXT(MONTH({!$Record.Statement_Month__c})), 2, &apos;0&apos;)</expression>
+    </formulas>
+    <interviewLabel>Bank Statement Defaults {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Bank Statement Defaults</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_Month_And_Key</targetReference>
+        </connector>
+        <object>Bank_Statement__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

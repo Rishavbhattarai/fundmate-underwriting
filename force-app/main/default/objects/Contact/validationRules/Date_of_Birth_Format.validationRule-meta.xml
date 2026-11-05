@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Date_of_Birth_Format</fullName>
+<active>true</active>
+<description>Date of Birth must be in YYYY-MM-DD format.</description>
+<errorConditionFormula>AND(NOT(ISBLANK(Date_of_Birth__c)), NOT(REGEX(Date_of_Birth__c, "\\d{4}-\\d{2}-\\d{2}")))</errorConditionFormula>
+<errorDisplayField>Date_of_Birth__c</errorDisplayField>
+<errorMessage>Date of Birth must be in YYYY-MM-DD format.</errorMessage>
+</ValidationRule>

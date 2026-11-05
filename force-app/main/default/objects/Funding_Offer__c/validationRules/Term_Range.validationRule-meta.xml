@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Term_Range</fullName>
+<active>true</active>
+<description>Term must be within Min and Max Term Months in Integration Settings.</description>
+<errorConditionFormula>OR(ISBLANK(Term_Months__c), Term_Months__c &lt; BLANKVALUE($CustomMetadata.Integration_Setting__mdt.Default.Min_Term_Months__c, 1), Term_Months__c &gt; BLANKVALUE($CustomMetadata.Integration_Setting__mdt.Default.Max_Term_Months__c, 120))</errorConditionFormula>
+<errorDisplayField>Term_Months__c</errorDisplayField>
+<errorMessage>Term is outside the allowed range in Integration Settings (3 to 18 months by default).</errorMessage>
+</ValidationRule>

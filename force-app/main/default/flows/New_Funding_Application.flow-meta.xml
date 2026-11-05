@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>66.0</apiVersion>
+    <description>Button on Account. Creates a Funding Application for the business; FundingApplicationTrigger snapshots the business's latest bank statements onto it. Owners and statements come from the Account, so the specialist only enters the request.</description>
+    <dynamicChoiceSets>
+        <name>Use_of_Funds_Choices</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Use_of_Funds__c</picklistField>
+        <picklistObject>Funding_Application__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <interviewLabel>New Funding Application {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Funding Application</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Application</name>
+        <label>Create Application</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>Get_Application</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Show_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requested_Amount__c</field>
+            <value>
+                <elementReference>Requested_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Use_of_Funds__c</field>
+            <value>
+                <elementReference>Use_of_Funds</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Funding_Application__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Application</name>
+        <label>Get Application</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Show_Created</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Create_Application</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Funding_Application__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Snapshot_Statement_Count__c</queriedFields>
+        <queriedFields>Average_Monthly_Deposits__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Enter_Request</name>
+        <label>Enter Request</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Application</targetReference>
+        </connector>
+        <fields>
+            <name>Intro_Text</name>
+            <fieldText>&lt;p&gt;Owners and the latest bank statements are taken from this business automatically.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Requested_Amount</name>
+            <dataType>Currency</dataType>
+            <fieldText>Requested Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Requested Amount must be greater than zero.&lt;/p&gt;</errorMessage>
+                <formulaExpression>{!Requested_Amount} &gt; 0</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Use_of_Funds</name>
+            <choiceReferences>Use_of_Funds_Choices</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Use of Funds</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Show_Created</name>
+        <label>Created</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Created_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(46, 132, 74);&quot;&gt;Created {!Get_Application.Name}.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!Get_Application.Snapshot_Statement_Count__c} bank statements on file, average monthly deposits ${!Get_Application.Average_Monthly_Deposits__c}.&lt;/p&gt;&lt;p&gt;Open the application from the Funding Applications list and press &lt;strong&gt;Send to Underwriting&lt;/strong&gt;; anything missing is listed then.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Show_Error</name>
+        <label>Error</label>
+        <locationX>440</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Error_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;The application could not be created.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Enter_Request</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

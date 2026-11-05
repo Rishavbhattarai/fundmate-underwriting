@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Decision_Value</fullName>
+<active>true</active>
+<description>Status must be Approved, Declined, Needs More Info, Rejected or Send Failed.</description>
+<errorConditionFormula>NOT(OR(Decision__c = &quot;Approved&quot;, Decision__c = &quot;Declined&quot;, Decision__c = &quot;Needs More Info&quot;, Decision__c = &quot;Rejected&quot;, Decision__c = &quot;Send Failed&quot;))</errorConditionFormula>
+<errorDisplayField>Decision__c</errorDisplayField>
+<errorMessage>Status must be Approved, Declined, Needs More Info, Rejected or Send Failed.</errorMessage>
+</ValidationRule>

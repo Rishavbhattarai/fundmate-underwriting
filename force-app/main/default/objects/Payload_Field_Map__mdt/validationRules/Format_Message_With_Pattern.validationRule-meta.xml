@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Format_Message_With_Pattern</fullName>
+<active>true</active>
+<description>Add a Format Message so users know what the pattern expects.</description>
+<errorConditionFormula>AND(NOT(ISBLANK(Format_Pattern__c)), ISBLANK(Format_Message__c))</errorConditionFormula>
+<errorDisplayField>Format_Message__c</errorDisplayField>
+<errorMessage>Add a Format Message so users know what the pattern expects.</errorMessage>
+</ValidationRule>

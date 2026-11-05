@@ -1,0 +1,5 @@
+name = "fundmate-underwriting-mock"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# API_KEY is a secret: npx wrangler secret put API_KEY

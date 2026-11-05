@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>Funding_Amount_Positive</fullName>
+<active>true</active>
+<description>Funding Amount must be greater than zero.</description>
+<errorConditionFormula>OR(ISBLANK(Funding_Amount__c), Funding_Amount__c &lt;= 0)</errorConditionFormula>
+<errorDisplayField>Funding_Amount__c</errorDisplayField>
+<errorMessage>Funding Amount must be greater than zero.</errorMessage>
+</ValidationRule>
