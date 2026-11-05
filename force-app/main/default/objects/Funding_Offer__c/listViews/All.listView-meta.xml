@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Funding_Application__c</columns>
+    <columns>Funding_Amount__c</columns>
+    <columns>Factor_Rate__c</columns>
+    <columns>Term_Months__c</columns>
+    <columns>Payment_Frequency__c</columns>
+    <columns>Estimated_APR__c</columns>
+    <columns>Superseded__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Funding Offers</label>
+</ListView>
